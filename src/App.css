@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+}
+#root {height: 100% !important; }
+
+.App{
+  font-family: 'Maven Pro', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 150%;
+}
+
+.App-body{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  padding: .7rem;
+  color: white;
+  letter-spacing: 3px;
+  font-size: large;
+}
+
+
+/** left side navbar styles **/
+
+.side-nav{
+  list-style: none;
+  background: #9A9A9A;
+  padding: 1rem;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-top: 0px;
+  min-width: 130px;
+  height: 100%;
+  padding-right: 0;
+  z-index: 1;
+
+}
+
+.active-nav{
+  background: #757575;
+  width: 100%;
+  color: #fff;
+}
+
+.nav-item{
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: lightgrey;
+  font-size: small;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  padding-left: 10px;
+}
+
+.nav-item--selected{
+  background-color: darkgray;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: lightgrey;
+  font-size: small;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  padding-left: 10px;
+}
+
+.nav-item:hover{
+  color: #fff;
+}
+
+.nav-item.active{
+  background-color: darkgray;
+}
+
+/** central credential list column styles **/
+
+.sitesList {
+  border-right: 1px solid lightgrey;
+  padding-bottom: 1rem;
+  z-index: 1;
+  background-color: #fff;
+
+}
+
+.sitesList input {
+  width: 200px;
+  background-color: #fff;
+  padding: 10px 20px 10px 30px;
+  outline: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 300;
+  border: none;
+  border-bottom: 2px solid darkgray;
+
+}
+
+.site {
+  position: relative;
+  padding: 10px 20px 10px 30px;
+  outline: none;
+  background: #fff;
+  font-weight: 500;
+  width: 200px;
+  min-height: 50px;
+  font-size: 16px;
+  border-bottom: 1px solid darkgray;
+}
+
+.active-site{
+  background: #DBDBDB;
+}
+
+.site--selected {
+  position: relative;
+  padding: 10px 20px 10px 30px;
+  outline: none;
+  background: lightgrey;
+  font-weight: 500;
+  width: 200px;
+  min-height: 50px;
+  font-size: 16px;
+  border-bottom: 1px solid darkgray;
+}
+
+.siteName {
+  font-size: 1em;
+  font-weight: bold;
+  color: #606060;
+}
+
+.siteName:hover{
+  color: cornflowerblue;
+}
+
+.siteName.a {
+  margin-bottom: 20px;
+}
+
+.userList {
+  margin-top: 7px;
+  font-size: 13px;
+}
+
+/** user list (under each cred item) styles **/
+
+.userList input {
+  width: 200px;
+  background-color: transparent;
+  padding: 10px 20px 10px 30px;
+  outline: none;
+  border: none;
+  color: black;
+  font-size: 12px;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 300ms all ease-out;
+}
+
+
+.userList input:focus {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: 300ms all ease-out;
+}
+
+
+.user {
+  padding: 5px 5px;
+  border-top: 1px solid darkgray;
+  color: #606060;
+  font-weight: 200;
+  max-width: 100%;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.userInput{
+  margin-top: 10px;
+  height: 30px;
+  width: 100%;
+}
+
+.userInput input{
+  padding-left: 3px;
+}
+
+.new-user-field{
+  width: 75%;
+  height: 20px;
+}
+
+/** rhs site expansion styles **/
+
+.site-detail{
+  padding-left: 2rem;
+  padding-top: .7rem;
+  width: 100%;
+  color: #606060;
+}
+
+.site-header{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.detail-row{
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+}
+
+.detail-col{
+  display: flex;
+  flex-direction: column;
+  width: 275px;
+  height: 100%;
+  margin-right: 35px;
+
+}
+
+.col-head{
+  border-bottom: 1px solid darkgray;
+  font-size: 13px;
+}
+
+.head-right{
+  float:right;
+  cursor: pointer;
+}
+
+.head-right:hover{
+  color: cornflowerblue;
+}
+
+.head-left{
+  font-weight: 800;
+}
+
+.sharing-stuff{
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.sharing-row{
+  border-bottom: 1px solid darkgray;
+  padding-bottom: 5px;
+  margin-top: 7px;
+}
+
+.share-left{
+
+}
+
+.share-right{
+  float: right;
+  cursor: pointer;
+  color: #C21F39;
+}
+
+.share-right:hover{
+  color: #f0ad4e;
+}
+
+.user-stuff{
+  margin-top: 10px;
+}
+
+.list-small{
+  font-size: small;
+}
+
+/** assorted garbage, shame styles **/
+
+.pill {
+  background: #6F6F6F;
+  background-image: -webkit-linear-gradient(top, #606060, #6F6F6F);
+  background-image: -moz-linear-gradient(top, #606060, #6F6F6F);
+  background-image: -ms-linear-gradient(top, #606060, #6F6F6F);
+  background-image: -o-linear-gradient(top, #606060, #6F6F6F);
+  background-image: linear-gradient(to bottom, #606060, #6F6F6F);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-decoration: none;
+  width: 29px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 1px;
+  padding-bottom: 3px;
+  font-size: 9px;
+  display: inline;
+  float: right;
+  color: lightgrey;
+}
+
+.btn-text{
+  align-self: center;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.con {
+  height: 16px;
+  width: auto;
+  margin-right: 5px;
+}
+
+.share-btn {
+  cursor: pointer;
+  background: #6F6F6F;
+  text-decoration: none;
+  padding-left: 4px;
+  padding-right: 4px;
+  height: 26px;
+  font-size: 11px;
+  color: #F0F0F0;
+  margin-left: 5px;
+  float: right;
+
+}
+
+.share-btn:hover {
+  background: lightgrey;
+}
+
+
+.site-icon{
+  height: 15px;
+  width: auto;
+}
+
+.fa-icon{
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.fa-icon-detail{
+  display: block;
+  -webkit-margin-before: 1.1em;
+  -webkit-margin-after: 0.83em;
+  -webkit-margin-start: 5px;
+  -webkit-margin-end: 0px;
+  margin-left: 12px;
+  color: grey;
+}
+
+.fa-icon-detail{
+  color: orange;
+}
+
+
+
+/** Animation garbage follows **/
+
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.cross-fade-leave {
+  opacity: 1;
+}
+.cross-fade-leave.cross-fade-leave-active {
+  opacity: 0;
+  transition: opacity 5s ease-in;
+}
+
+.cross-fade-enter {
+  opacity: 0;
+}
+.cross-fade-enter.cross-fade-enter-active {
+  opacity: 1;
+  transition: opacity 5s ease-in;
+}
+
+
+.fade-wait-leave {
+  opacity: 1;
+}
+.fade-wait-leave.fade-wait-leave-active {
+  opacity: 0;
+  transition: opacity .4s ease-in;
+}
+
+.fade-wait-enter {
+  opacity: 0;
+}
+.fade-wait-enter.fade-wait-enter-active {
+  opacity: 1;
+  /* Delay the enter animation until the leave completes */
+  transition: opacity .4s ease-in .6s;
+}
+
+.slide-enter {
+  transform: translate(100%);
+}
+.slide-enter.slide-enter-active {
+  transform: translate(0%);
+  transition: transform 500ms ease-in-out;
+}
+.slide-leave {
+  transform: translate(0%);
+}
+.slide-leave.slide-leave-active {
+  transform: translate(-100%);
+  transition: transform 500ms ease-in-out;
+}
+
+.site-route{
+  position: fixed;
+  z-index: 0;
+}
+
