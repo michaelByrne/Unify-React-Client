@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import ReactCSSTransitionReplace from 'react-css-transition-replace';
 
 
 
@@ -31,7 +30,7 @@ import {
 } from 'react-apollo';
 
 
-const networkInterface = createNetworkInterface({uri: 'https://tranquil-bastion-83151.herokuapp.com/graphql'});
+const networkInterface = createNetworkInterface({uri: 'https://secret-journey-81633.herokuapp.com'});
 networkInterface.use([{
   applyMiddleware(req, next) {
     setTimeout(next, 500);
@@ -76,12 +75,6 @@ class App extends Component {
   }
 
   render() {
-    // this.props.mutate({
-    //   variables: {
-    //     fakeArg: 1
-    //   }
-    // });
-
 
     return (
       <ApolloProvider client={client}>
