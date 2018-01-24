@@ -97,7 +97,7 @@ class SitesList extends Component {
           className="search-box"
           onChange={this.handleInput.bind(this)}
         />
-        { this.props.data.credentials.filter(item => this.filterList(item, this.state.filterSelection)).filter(c => c.website.indexOf(this.state.searchFilter) > -1).map(st =>
+        { this.props.data.sites.filter(item => this.filterList(item, this.state.filterSelection)).filter(c => c.website.indexOf(this.state.searchFilter) > -1).map(st =>
           (
             <div key={st.id} className={'site' + (st.id === this.state.selectedId ? '--selected' : '')}
                  >
@@ -105,7 +105,7 @@ class SitesList extends Component {
               <Link to={st.id.length < 1 ? `/` : `../../site/${st.id}`} onClick={this.userSelected.bind(this)} className="site-link" data-id={st.id}>
                 <span className="siteName">{st.website.charAt(0).toUpperCase() + st.website.slice(1)}</span>
               </Link>
-              <UserList users={[st.owner.username].concat(st.shared_with)} />
+              <UserList users={[st.shared_by].concat(st.shared_with)} />
             </div>)
         )}
       </div>
@@ -115,19 +115,17 @@ class SitesList extends Component {
 
 export const credentialListQuery = gql`
   query CredentialListQuery {
-    credentials {
+    sites {
       id
       website
-      username
-      password_id
-      lender_user_id
-      shared_with
-      shared_by
       is_owner
-      is_shared
-      owner {
-        username
+      shared_with{
         name
+        id
+      }
+      shared_by{
+        name
+        id
       }
     }
   }

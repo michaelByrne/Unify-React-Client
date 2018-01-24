@@ -28,13 +28,14 @@ class AddUser extends Component {
     this.props.mutate({
       variables: {
         credentialId: this.props.match.params.siteId,
-        username: this.state.value
+        name: this.state.value
       },
       update: (store, {data: {addUserToCredential}}) => {
         var data = store.readQuery({query: siteDetailsQuery, variables: {credId: this.props.match.params.siteId}});
-        var sharedCopy = data.credential.shared_with.filter(m => true);
-        sharedCopy.push(this.state.value);
-        data.credential.shared_with = sharedCopy;
+        var sharedCopy = data.site.shared_with.filter(m => true);
+        sharedCopy.push({id: "999999", name: this.state.value, __typename: "User"});
+        data.site.shared_with = sharedCopy;
+        console.log(sharedCopy)
         store.writeQuery({ query: siteDetailsQuery, variables: {credId: this.props.match.params.siteId}, data });
       },
     });
@@ -62,10 +63,9 @@ class AddUser extends Component {
 };
 
 const addUserMutation = gql`
-  mutation addUserToCredential($username: String!, $name: String, $credentialId: String!) {
-    addUserToCredential(username: $username, name: $name, credentialId: $credentialId) {
-      username
-      shared_with
+  mutation addUserToCredential($credentialId: String!, $name: String!) {
+    addUserToCredential(id: $credentialId, user: {name: $name}) {
+      website
     }
   }
 `;

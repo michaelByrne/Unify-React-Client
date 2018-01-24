@@ -27,6 +27,7 @@ class Sharing extends Component {
 
   deleteSharedWith(evt) {
     const un = evt.currentTarget.dataset.cred;
+    console.log(un);
     this.props.mutate({
       variables: {
         id: this.state.credential.id,
@@ -40,7 +41,7 @@ class Sharing extends Component {
       },
       update: (store, {data: {revokeSharing}}) => {
         const data = store.readQuery({query: siteDetailsQuery, variables: {credId: this.state.credential.id}});
-        data.credential.shared_with = this.remove(data.credential.shared_with, un);
+        data.site.shared_with = data.site.shared_with.filter(s => s.name !== un);
         store.writeQuery({ query: siteDetailsQuery, variables: {credId: this.state.credential.id}, data });
       },
     })
@@ -61,10 +62,10 @@ class Sharing extends Component {
           </div>
           <div className="sharing-stuff">
             { this.state.credential.shared_with.map(c =>
-              (<div className="sharing-row" key={c}>
-                  <span className="share-left">> &nbsp;{c}</span>
+              (<div className="sharing-row" key={c.id}>
+                  <span className="share-left">> &nbsp;{c.name}</span>
                   <span className="share-right" onClick={this.deleteSharedWith.bind(this)}
-                        data-cred={c}>Revoke sharing</span>
+                        data-cred={c.name}>Revoke sharing</span>
                 </div>
               )
             )}
@@ -92,9 +93,11 @@ class Sharing extends Component {
 
 const revokeSharingMutation = gql`
   mutation revokeSharing($id: String!, $username: String!) {
-    revokeSharing(id: $id, username: $username) {
-      username
-      shared_with
+    revokeSharing(id: $id, name: $username) {
+      website
+      shared_with{
+        name
+      }
     }
   }
 `;

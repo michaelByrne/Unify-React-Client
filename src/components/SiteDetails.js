@@ -41,15 +41,15 @@ class SiteDetails extends Component {
     return (
       <div className="site-detail">
 
-        <div key={this.props.data.credential.website} className="site-header"><h2>{ this.formatTitle(this.props.data.credential.website) }</h2><FontAwesomeIcon
+        <div key={this.props.data.site.website} className="site-header"><h2>{ this.formatTitle(this.props.data.site.website) }</h2><FontAwesomeIcon
           className="fa-icon-detail"
           icon="share-alt-square" size="lg"/></div>
-        <div key={this.props.data.credential.id} className="detail-row">
+        <div key={this.props.data.site.id} className="detail-row">
           <div className="detail-col">
-            <LoginInfo credential={this.props.data.credential}/>
+            <LoginInfo credential={this.props.data.site}/>
           </div>
-          {this.props.data.credential.is_owner ? (<div className="detail-col">
-            <Sharing credential={this.props.data.credential}/>
+          {this.props.data.site.is_owner ? (<div className="detail-col">
+            <Sharing credential={this.props.data.site}/>
           </div>) : <div className="detail-col"></div> }
         </div>
 
@@ -62,18 +62,19 @@ class SiteDetails extends Component {
 
 export const siteDetailsQuery = gql`
   query CredentialDetailsQuery($credId : String!) {
-    credential(id: $credId) {
+    site(id: $credId) {
       id
       website
-      username
-      password_id
-      shared_with
-      shared_by
-      is_owner
-      owner {
-        username
+      shared_with{
+        id
         name
       }
+      shared_by{
+        id
+        name
+      }
+      is_owner
+      password_id
     }
   }
 `;

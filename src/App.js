@@ -30,7 +30,7 @@ import {
 } from 'react-apollo';
 
 
-const networkInterface = createNetworkInterface({uri: 'https://secret-journey-81633.herokuapp.com'});
+const networkInterface = createNetworkInterface({uri: 'http://localhost:8080/graphql'});
 networkInterface.use([{
   applyMiddleware(req, next) {
     setTimeout(next, 500);
